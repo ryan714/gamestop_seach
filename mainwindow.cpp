@@ -9,7 +9,6 @@
 #include <libxml++/libxml++.h>
 #include <iostream>
 #include <cstdlib>
-
 #include <QTimer>
 
 MainWindow::MainWindow(QWidget *parent): QWidget(parent)
@@ -73,8 +72,8 @@ void MainWindow::setText() {
     parseHtml(this->getTheNetworkData().toStdString());
 
     QList<QString>::iterator it;
-    QString populateLinks;
     QString titleString;
+
     for (it = urlList.begin(); it != urlList.end(); it++) {
 
         titleString = *it;
@@ -86,6 +85,9 @@ void MainWindow::setText() {
     QCompleter *completer = new QCompleter(titleList, this);
     completer->setCompletionMode(QCompleter::PopupCompletion);
     textBox->setCompleter(completer);
+
+    titleList.clear();
+    urlList.clear();
 }
 
 int MainWindow::parseHtml(std::string htmlPath) {
