@@ -17,7 +17,7 @@ class MainWindow : public QWidget
     Q_OBJECT
 public:
     MainWindow(QWidget *parent=0);
-    int parseHtml(std::string);
+    int parseHtml(const std::string&);
     void goThroughNode(xmlpp::Node*);
     QString getTheNetworkData();
     QString networkAnswer;

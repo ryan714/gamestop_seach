@@ -29,13 +29,13 @@ MainWindow::MainWindow(QWidget *parent): QWidget(parent)
 
     // Signals and Slots
 
-    connect( button1, SIGNAL( clicked() ),
+    connect( button1, SIGNAL( clicked()),
     qApp, SLOT( quit() ) );
 
-    connect(button2, SIGNAL(clicked() ),
+    connect(button2, SIGNAL(clicked()),
     this, SLOT(openLink()));
 
-    connect(textBox, SIGNAL(returnPressed() ),
+    connect(textBox, SIGNAL(returnPressed()),
     this, SLOT(openLink()));
 
     connect(textBox, SIGNAL(textEdited(QString)),
@@ -90,7 +90,7 @@ void MainWindow::setText() {
     urlList.clear();
 }
 
-int MainWindow::parseHtml(std::string htmlPath) {
+int MainWindow::parseHtml(const std::string& htmlPath) {
 
     try
     {
